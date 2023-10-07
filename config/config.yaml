@@ -1,6 +1,11 @@
 artifacts_root: artifacts
 
-
+database:
+  host: mysqldb
+  user: root
+  password: password
+  name: translations_db
+    
 data_ingestion:
   root_dir: artifacts/data_ingestion
   source_URL: https://github.com/rahuljain788/data/raw/main/summarizer-data.zip
@@ -36,5 +41,5 @@ model_evaluation:
   root_dir: artifacts/model_evaluation
   data_path: artifacts/data_transformation/samsum_dataset
   model_path: artifacts/model_trainer/pegasus-samsum-model
-  tokenizer_path: artifacts/model_trainer/tokenizer
+  tokenizer_path: facebook/m2m100_418M
   metric_file_name: artifacts/model_evaluation/metrics.csv

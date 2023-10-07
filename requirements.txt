@@ -1,12 +1,14 @@
 transformers
+sentencepiece
 transformers[sentencepiece]
 transformers[torch]
+streamlit
+streamlit_chat
 datasets
 sacrebleu
 rouge_score
 py7zr
 pandas
-nltk
 tqdm
 PyYAML
 matplotlib
@@ -19,4 +21,9 @@ ensure==1.0.2
 fastapi==0.78.0
 uvicorn==0.18.3
 Jinja2==3.1.2
+spacy==3.6.1
+nltk==3.8.1
+en-core-web-md @ https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.6.0/en_core_web_md-3.6.0-py3-none-any.whl
+fr-core-news-md @ https://github.com/explosion/spacy-models/releases/download/fr_core_news_md-3.6.0/fr_core_news_md-3.6.0-py3-none-any.whl
+mysql-connector-python~=8.1.0
 -e .

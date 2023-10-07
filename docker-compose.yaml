@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  # FastAPI application
+  app:
+    build:
+      context: .
+    ports:
+      - "8501:8501"
+
+  # MySQL database
+  mysqldb:
+    image: mysql:5.7
+    environment:
+      - MYSQL_DATABASE=translations_db
+      - MYSQL_ROOT_PASSWORD=password
+    ports:
+      - 3306:3306
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d  # Mount the SQL initialization script

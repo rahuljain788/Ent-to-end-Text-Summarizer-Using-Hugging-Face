@@ -1,12 +1,30 @@
 import os
 from box.exceptions import BoxValueError
 import yaml
-from textSummarizer.logging import logger
+from src.textSummarizer.logging import logger
+from src.textSummarizer.utils.DatabaseUtility import DatabaseUtility
+from src.textSummarizer.constants import *
 from ensure import ensure_annotations
 from box import ConfigBox
 from pathlib import Path
 from typing import Any
 
+
+# Context manager for the database connection
+@ensure_annotations
+def get_mysql_db():
+    """
+    Get a database connection.
+
+    :return: Database connection
+    """
+    db = DatabaseUtility(config_path=CONFIG_FILE_PATH)
+    try:
+        conn = db.connect()
+        logger.info("connection " + str(conn))
+        return db
+    except:
+        db.close_connection()
 
 @ensure_annotations
 def read_yaml(path_to_yaml: Path) -> ConfigBox:
